@@ -1,0 +1,5 @@
+
+__requirements__ = [
+	"flask",
+	"requests",
+]
