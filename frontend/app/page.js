@@ -24,7 +24,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-[url('/oldbook.jpg')] bg-cover bg-center">
+    <div className="flex min-h-screen items-center justify-center bg-[url('/lotr.jpg')] bg-cover bg-center">
       <div className="bg-black/50 p-10 rounded-3xl text-center max-w-xl shadow-2xl border border-yellow-900">
         <h1 className="text-5xl text-yellow-300 mb-6 font-bold tracking-wide">Dagens visdom</h1>
         <p className="text-3xl text-yellow-100 italic mb-4" style={{ fontFamily: 'LOTR, serif' }}>
