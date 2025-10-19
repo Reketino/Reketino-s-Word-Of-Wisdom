@@ -86,7 +86,7 @@ export default function MusicPlayer() {
       <div className="bg-black/50 p-4 rounded-xl flex items-center gap-4">
         <button onClick={togglePlay} className="text-yellow-400 text-2xl">
           {isPlaying ? "⏸" : "▶️"}
-        </button>
+        </button> 
         <div className="flex-1 h-2 bg-yellow-700 rounded-full">
           <div
             className="h-2 bg-yellow-300 rounded-full"
