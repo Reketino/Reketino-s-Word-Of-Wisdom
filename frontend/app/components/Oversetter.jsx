@@ -11,7 +11,7 @@ export default function Translator({ quote }) {
     setLoading(true);
     try {
       const res = await fetch(
-        "https://reketino-s-word-of-wisdom.onrender.com/quote",
+        "https://reketino-s-word-of-wisdom.onrender.com/",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
