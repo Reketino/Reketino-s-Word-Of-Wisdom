@@ -59,7 +59,7 @@ export default function Home() {
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
         <MusicPlayer />
       </div>
-      <Translator />
+      <Translator quote={quote} />
     </main>
   );
 }

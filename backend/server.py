@@ -4,7 +4,7 @@ import requests, random,os
 
 
 app = Flask(__name__)
-CORS(app)  
+CORS(app, resources={r"/*": {"origins": "*"}})
 
 def fetch_quote():
     try:

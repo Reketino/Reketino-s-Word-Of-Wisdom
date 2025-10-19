@@ -11,7 +11,7 @@ export default function Translator({ quote }) {
     setLoading(true);
     try {
       const res = await fetch(
-        "https://reketino-s-word-of-wisdom.onrender.com/",
+        "https://reketino-s-word-of-wisdom.onrender.com/translate",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -33,16 +33,32 @@ export default function Translator({ quote }) {
       <select
         value={language}
         onChange={(e) => setLanguage(e.target.value)}
-        className="border px-2 py-1 rounded mr-2"
+        className="bg-black/70 text-yellow-200 border border-yellow-700 px-2 py-1 rounded-lg mr-2 shadow-lg backdrop-blur-sm focus:ring-2 focus:ring-yellow-500"
       >
-        <option value="no">Norwegian</option>
-        <option value="sv">Swedish</option>
-        <option value="fi">Finnish</option>
-        <option value="en">English</option>
-        <option value="ja">Japanese</option>
-        <option value="es">Spanish</option>
-        <option value="fr">French</option>
-        <option value="de">German</option>
+        <option className="bg-yellow-400 text-white" value="no">
+          Norwegian
+        </option>
+        <option className="bg-yellow-400 text-white" value="sv">
+          Swedish
+        </option>
+        <option className="bg-yellow-400 text-white" value="fi">
+          Finnish
+        </option>
+        <option className="bg-yellow-400 text-white" value="en">
+          English
+        </option>
+        <option className="bg-yellow-400 text-white" value="ja">
+          Japanese
+        </option>
+        <option className="bg-yellow-400 text-white" value="es">
+          Spanish
+        </option>
+        <option className="bg-yellow-400 text-white" value="fr">
+          French
+        </option>
+        <option className="bg-yellow-400 text-white" value="de">
+          German
+        </option>
       </select>
 
       <button
