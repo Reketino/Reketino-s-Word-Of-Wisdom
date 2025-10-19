@@ -36,7 +36,7 @@ export default function Home() {
       <div className="flex flex-col items-center justify-center gap-6 z-10">
         <div className="bg-black/50 p-12 rounded-3xl text-center max-w-xl shadow-2xl border border-yellow-900 flex flex-col items-center gap-6">
           <h2 className="text-3xl sm:text-4xl text-yellow-300 font-lotr mb-2">
-            Dagens visdom
+            {"Wisdom Of Today"}
           </h2>
 
           <p
@@ -51,15 +51,15 @@ export default function Home() {
             onClick={fetchQuote}
             className="bg-yellow-700 text-white px-6 py-3 rounded-lg hover:bg-yellow-800 transition mt-4"
           >
-            Hent nytt visdomsord
+            Get New Word Of Wisdom
           </button>
         </div>
       </div>
 
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
         <MusicPlayer />
-        <Translator />
       </div>
+      <Translator />
     </main>
   );
 }
