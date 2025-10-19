@@ -76,14 +76,13 @@ export default function MusicPlayer() {
 
   return (
     <div className="rounded-2xl shadow-xl border-4 border-amber-700 p-6 text-center w-[340px] sm:w-[400px] text-amber-200 font-serif transition-all">
-      <h2 className="text-2xl mb-3 font-bold text-amber-300 drop-shadow-lg tracking-widest">
+      <h2 className="text-2xl mb-3 font-bold font-lotr text-amber-300 drop-shadow-lg tracking-widest">
         🎵 Songs of the Middle Earth
       </h2>
 
-      {/* Hidden audio element */}
+     
       <audio ref={audioRef} src={tracks[current]} onEnded={handleEnded} />
 
-      {/* Custom player UI */}
       <div className="bg-black/50 p-4 rounded-xl flex items-center gap-4">
         <button onClick={togglePlay} className="text-yellow-400 text-2xl">
           {isPlaying ? "⏸" : "▶️"}
