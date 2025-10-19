@@ -5,7 +5,7 @@ import MusicPlayer from "./components/musikk";
 import Translator from "./components/Oversetter";
 
 export default function Home() {
-  const [quote, setQuote] = useState("Laster dagens visdom...");
+  const [quote, setQuote] = useState("Loading Wisdom Of Today");
   const [author, setAuthor] = useState("");
 
   const fetchQuote = async () => {
@@ -17,7 +17,7 @@ export default function Home() {
       setQuote(data.quote);
       setAuthor(data.author);
     } catch (error) {
-      setQuote("Kunne ikke hente visdomsord 😅");
+      setQuote("Couldn't retrieve words of wisdom😅");
       setAuthor("");
       console.error(error);
     }
@@ -49,7 +49,7 @@ export default function Home() {
 
           <button
             onClick={fetchQuote}
-            className="bg-yellow-700 text-white px-6 py-3 rounded-lg hover:bg-yellow-800 transition mt-4"
+            className="bg-yellow-700  text-white px-6 py-3 rounded-lg hover:bg-amber-800 transition mt-4"
           >
             Get New Word Of Wisdom
           </button>
