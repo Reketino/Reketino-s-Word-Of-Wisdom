@@ -2,11 +2,7 @@
 import { useState, useEffect, useRef } from "react";
 
 export default function MusicPlayer() {
-  const tracks = [
-    "/music/song1.mp3",
-    "/music/song2.mp3",
-    "/music/song3.mp3",
-  ];
+  const tracks = ["/music/song1.mp3", "/music/song2.mp3", "/music/song3.mp3"];
 
   const [current, setCurrent] = useState(0);
   const [isFading, setIsFading] = useState(false);
@@ -17,8 +13,6 @@ export default function MusicPlayer() {
   const [currentTime, setCurrentTime] = useState("0:00");
   const [duration, setDuration] = useState("0:00");
 
-
-  // Start / pause musikk
   const togglePlay = () => {
     const audio = audioRef.current;
     if (!audio) return;
@@ -27,17 +21,17 @@ export default function MusicPlayer() {
       audio.pause();
       setIsPlaying(false);
     } else {
-      audio.play();
+      audio.play().catch((e) => {
+        console.log("Autoplay blocked:", e);
+      });
       setIsPlaying(true);
     }
   };
 
-  
   const handleEnded = () => {
     setCurrent((prev) => (prev + 1) % tracks.length);
   };
 
- 
   useEffect(() => {
     const audio = audioRef.current;
     if (!audio) return;
@@ -48,7 +42,9 @@ export default function MusicPlayer() {
 
       const formatTime = (time) => {
         const mins = Math.floor(time / 60);
-        const secs = Math.floor(time % 60).toString().padStart(2, "0");
+        const secs = Math.floor(time % 60)
+          .toString()
+          .padStart(2, "0");
         return `${mins}:${secs}`;
       };
 
@@ -65,7 +61,6 @@ export default function MusicPlayer() {
     };
   }, [current]);
 
-  // AutoPlay neste sang
   useEffect(() => {
     const audio = audioRef.current;
     if (audio) {
@@ -76,26 +71,42 @@ export default function MusicPlayer() {
 
   return (
     <div className="rounded-2xl shadow-xl border-4 border-amber-700 p-6 text-center w-[340px] sm:w-[400px] text-amber-200 font-serif transition-all">
-      <h2 className="text-2xl mb-3 font-bold font-lotr text-amber-300 drop-shadow-lg tracking-widest">
+      <h2 className="text-2xl mb-3 font-bold text-amber-300 drop-shadow-lg tracking-widest">
         🎵 Songs of the Middle Earth
       </h2>
 
-     
       <audio ref={audioRef} src={tracks[current]} onEnded={handleEnded} />
 
       <div className="bg-black/50 p-4 rounded-xl flex items-center gap-4">
-        <button onClick={togglePlay} className="text-yellow-400 text-2xl">
+        <button
+          onClick={togglePlay}
+          className="text-yellow-400 text-2xl hover:text-yellow-300 transition-colors"
+        >
           {isPlaying ? "⏸" : "▶️"}
-        </button> 
+        </button>
+
         <div className="flex-1 h-2 bg-yellow-700 rounded-full">
           <div
             className="h-2 bg-yellow-300 rounded-full"
             style={{ width: `${progress}%` }}
           ></div>
         </div>
+
         <span className="text-yellow-200 text-sm">
           {currentTime} / {duration}
         </span>
+
+        <input
+          type="range"
+          min="0"
+          max="1"
+          step="0.01"
+          value={audioRef.current?.volume || 1}
+          onChange={(e) => {
+            if (audioRef.current) audioRef.current.volume = e.target.value;
+          }}
+          className="w-24 accent-yellow-400"
+        />
       </div>
 
       <p className="text-lg italic my-4">

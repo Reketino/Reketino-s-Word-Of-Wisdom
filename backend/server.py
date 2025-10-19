@@ -1,7 +1,7 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, request
 from flask_cors import CORS  
-import requests, random
-import os
+import requests, random,os
+
 
 app = Flask(__name__)
 CORS(app)  
@@ -21,6 +21,31 @@ def fetch_quote():
 @app.route("/quote")
 def quote():
     return jsonify(fetch_quote())
+
+@app.route("/translate", methods=["POST"])
+def translate():
+    data = request.json
+    quote_text = data.get("quote")
+    target_lang = data.get("lang", "en")
+
+    if not quote_text:
+        return jsonify({"error": "No quote provided"}), 400
+
+    try:
+        response = requests.post(
+            "https://libretranslate.com/translate",
+            json={
+                "q": quote_text,
+                "source": "en",
+                "target": target_lang
+            },
+            timeout=5
+        )
+        translated = response.json()["translatedText"]
+        return jsonify({"translated": translated})
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
