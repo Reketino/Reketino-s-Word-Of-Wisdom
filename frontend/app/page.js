@@ -8,7 +8,7 @@ export default function Home() {
 
   const fetchQuote = async () => {
     try {
-      const res = await fetch("/api/quote");
+      const res = await fetch("https://visdomsord-backend.onrender.com/quote");
       const data = await res.json();
       setQuote(data.quote);
       setAuthor(data.author);

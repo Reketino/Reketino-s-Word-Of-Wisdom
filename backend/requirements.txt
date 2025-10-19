@@ -1,5 +1,3 @@
-
-__requirements__ = [
-	"flask",
-	"requests",
-]
+Flask
+Flask-Cors
+requests
