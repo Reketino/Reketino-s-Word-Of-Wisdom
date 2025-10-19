@@ -35,28 +35,28 @@ export default function Translator({ quote }) {
         onChange={(e) => setLanguage(e.target.value)}
         className="bg-black/70 text-yellow-200 border border-yellow-700 px-2 py-1 rounded-lg mr-2 shadow-lg backdrop-blur-sm focus:ring-2 focus:ring-yellow-500"
       >
-        <option className="bg-yellow-700 text-white" value="no">
+        <option className="bg-yellow-400 text-white" value="no">
           Norwegian
         </option>
-        <option className="bg-yellow-700 text-white" value="sv">
+        <option className="bg-yellow-400 text-white" value="sv">
           Swedish
         </option>
-        <option className="bg-yellow-700 text-white" value="fi">
+        <option className="bg-yellow-400 text-white" value="fi">
           Finnish
         </option>
-        <option className="bg-yellow-700 text-white" value="en">
+        <option className="bg-yellow-400 text-white" value="en">
           English
         </option>
-        <option className="bg-yellow-700 text-white" value="ja">
+        <option className="bg-yellow-400 text-white" value="ja">
           Japanese
         </option>
-        <option className="bg-yellow-700 text-white" value="es">
+        <option className="bg-yellow-400 text-white" value="es">
           Spanish
         </option>
-        <option className="bg-yellow-700 text-white" value="fr">
+        <option className="bg-yellow-400 text-white" value="fr">
           French
         </option>
-        <option className="bg-yellow-700 text-white" value="de">
+        <option className="bg-yellow-400 text-white" value="de">
           German
         </option>
       </select>
