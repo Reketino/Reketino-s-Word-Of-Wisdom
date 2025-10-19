@@ -78,13 +78,6 @@ export default function MusicPlayer() {
       <audio ref={audioRef} src={tracks[current]} onEnded={handleEnded} />
 
       <div className="bg-black/50 p-4 rounded-xl flex items-center gap-4">
-        <button
-          onClick={togglePlay}
-          className="text-yellow-400 text-2xl hover:text-yellow-300 transition-colors"
-        >
-          {isPlaying ? "⏸" : "▶️"}
-        </button>
-
         <div className="flex-1 h-2 bg-yellow-700 rounded-full">
           <div
             className="h-2 bg-yellow-300 rounded-full"
@@ -112,13 +105,22 @@ export default function MusicPlayer() {
       <p className="text-lg italic my-4">
         Track {current + 1} of {tracks.length}
       </p>
+      
+      <div className="flex justify-center gap-4 mt-4">
+        <button
+          onClick={togglePlay}
+          className="px-6 py-2 rounded-full bg-amber-700 hover:bg-amber-800 transition-all shadow-md hover:shadow-amber-500/30 border border-amber-500 font-semibold"
+        >
+          {isPlaying ? "⏸ Pause" : "▶ Play"}
+        </button>
 
-      <button
-        onClick={() => setCurrent((current + 1) % tracks.length)}
-        className="px-6 py-2 rounded-full bg-amber-700 hover:bg-amber-800 transition-all shadow-md hover:shadow-amber-500/30 border border-amber-500 font-semibold"
-      >
-        ▶ Next Song
-      </button>
+        <button
+          onClick={() => setCurrent((current + 1) % tracks.length)}
+          className="px-6 py-2 rounded-full bg-amber-700 hover:bg-amber-800 transition-all shadow-md hover:shadow-amber-500/30 border border-amber-500 font-semibold"
+        >
+          ▶ Next Song
+        </button>
+      </div>
     </div>
   );
 }
