@@ -47,7 +47,7 @@ export default function Translator({ quote }) {
 
       <button
         onClick={translateQuote}
-        className="bg-yellow-700 text-white px-3 py-1 rounded"
+        className="bg-yellow-700 hover:bg-amber-800  text-white px-3 py-1 rounded"
       >
         {loading ? "Translating..." : "Translate"}
       </button>
