@@ -30,7 +30,7 @@ export default function Home() {
 
 
  <h1 className="absolute top-4 left-1/2 transform -translate-x-1/2 text-9xl sm:text-[12rem] font-lotr text-yellow-300 drop-shadow-2xl text-center">
-    Reketino's Words Of Wisdom
+    {"Reketino's Words Of Wisdom"}
   </h1>
 
   <div className="flex flex-col items-center justify-center gap-6 z-10">
