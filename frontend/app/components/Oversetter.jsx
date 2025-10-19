@@ -11,7 +11,7 @@ export default function Translator({ quote }) {
     setLoading(true);
     try {
       const res = await fetch(
-        "https://reketino-s-word-of-wisdom.onrender.com/",
+        "https://reketino-s-word-of-wisdom.onrender.com/translate",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -33,7 +33,7 @@ export default function Translator({ quote }) {
       <select
         value={language}
         onChange={(e) => setLanguage(e.target.value)}
-        className="border px-2 py-1 rounded mr-2"
+        className="bg-yellow-700 border px-2 py-1 rounded mr-2"
       >
         <option value="no">Norwegian</option>
         <option value="sv">Swedish</option>
