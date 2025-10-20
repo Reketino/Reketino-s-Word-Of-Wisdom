@@ -49,7 +49,7 @@ export default function Home() {
 
           <button
             onClick={fetchQuote}
-            className="bg-yellow-700  text-white px-6 py-3 rounded-lg hover:bg-amber-800 transition mt-4"
+            className="bg-yellow-700  text-white px-6 z-20 py-3 rounded-lg hover:bg-amber-800 transition mt-4"
           >
             Get New Word Of Wisdom
           </button>
