@@ -49,7 +49,10 @@ export default function Home() {
 
           <button
             onClick={fetchQuote}
-            className="bg-yellow-700  text-white px-6  py-3 rounded-lg hover:bg-amber-800 transition mt-4"
+            className="relative bg-yellow-700 text-white px-6 py-3 rounded-lg 
+             hover:bg-amber-800 active:scale-95 active:bg-yellow-900 
+             focus:ring-4 focus:ring-yellow-400/40 transition-all 
+             mt-4 z-30 shadow-lg"
           >
             Get New Word Of Wisdom
           </button>
@@ -59,7 +62,9 @@ export default function Home() {
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
         <MusicPlayer />
       </div>
+      <div className=" mt-2">
       <Translator quote={quote} />
+      </div>
     </main>
   );
 }
