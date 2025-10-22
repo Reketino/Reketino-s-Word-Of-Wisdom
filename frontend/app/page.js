@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import MusicPlayer from "./components/musikk";
 import Translator from "./components/Oversetter";
+import Footer from "./components/footer";
 
 export default function Home() {
   const [quote, setQuote] = useState("Loading Wisdom Of Today");
@@ -29,7 +30,7 @@ export default function Home() {
 
   return (
     <main className="relative min-h-screen bg-[url('/bakgrunn.jpg')] bg-cover bg-center p-6 flex flex-col items-center justify-center">
-      <h1 className="absolute top-4 left-1/2 transform -translate-x-1/2 text-9xl sm:text-[12rem] font-lotr text-yellow-300 drop-shadow-2xl text-center">
+      <h1 className="absolute top-4 left-1/2 transform -translate-x-1/2 sm:text-[12rem] font-lotr text-yellow-300 drop-shadow-2xl text-center">
         {"Reketino's Words Of Wisdom"}
       </h1>
 
@@ -65,6 +66,7 @@ export default function Home() {
       <div className=" mt-2">
       <Translator quote={quote} />
       </div>
+      <Footer />
     </main>
   );
 }
